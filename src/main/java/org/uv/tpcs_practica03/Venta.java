@@ -1,11 +1,16 @@
 package org.uv.tpcs_practica03;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /* @author miran */
 @Entity (name="venta")
@@ -18,13 +23,14 @@ public class Venta {
     private Date fecha;
     
     @Column
-    private Long id_cliente;
-    
-    @Column
     private float total;
     
     @ManyToOne
+    @JoinColumn(name="id_cliente")
     private Cliente cliente;
+    
+    @OneToMany(mappedBy="venta", cascade={CascadeType.REMOVE, CascadeType.MERGE}, orphanRemoval=true, fetch=FetchType.EAGER)
+    private List<Det_Venta> detalles;
 
     public Long getId() {
         return id;
@@ -40,14 +46,6 @@ public class Venta {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }
-
-    public Long getId_cliente() {
-        return id_cliente;
-    }
-
-    public void setId_cliente(Long id_cliente) {
-        this.id_cliente = id_cliente;
     }
 
     public float getTotal() {
@@ -66,6 +64,17 @@ public class Venta {
         this.cliente = cliente;
     }
     
+    public List<Det_Venta> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<Det_Venta> detalles) {
+        this.detalles = detalles;
+        this.total=0;
+        for(Det_Venta detalle:detalles){
+            this.total+=detalle.getPrecio()*detalle.getCantidad();
+        }
+    }
     
     
 }

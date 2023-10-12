@@ -2,17 +2,16 @@ package org.uv.tpcs_practica03;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /* @author miran */
 @Entity (name="det_venta")
 public class Det_Venta {
+
     @Id
-    private Long id_venta;
-    
-    @Column
-    private Long id_producto;
-    
+    private Long id;
+
     @Column
     private int cantidad;
     
@@ -23,26 +22,12 @@ public class Det_Venta {
     private double precio;
     
     @ManyToOne
+    @JoinColumn(name="id_venta")
     private Venta venta;
     
     @ManyToOne
+    @JoinColumn(name="id_producto")
     private Producto producto;
-
-    public Long getId_venta() {
-        return id_venta;
-    }
-
-    public void setId_venta(Long id_venta) {
-        this.id_venta = id_venta;
-    }
-
-    public Long getId_producto() {
-        return id_producto;
-    }
-
-    public void setId_producto(Long id_producto) {
-        this.id_producto = id_producto;
-    }
 
     public int getCantidad() {
         return cantidad;
@@ -82,6 +67,14 @@ public class Det_Venta {
 
     public void setProducto(Producto producto) {
         this.producto = producto;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
 }

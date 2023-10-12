@@ -1,6 +1,12 @@
-org\uv\tpcs_practica03\Cliente.class
-org\uv\tpcs_practica03\Venta.class
+org\uv\tpcs_practica03\GUICliente.class
 org\uv\tpcs_practica03\TPCS_Practica03.class
 org\uv\tpcs_practica03\Det_Venta.class
+org\uv\tpcs_practica03\DAOVenta.class
+org\uv\tpcs_practica03\DAOCliente.class
+org\uv\tpcs_practica03\Cliente.class
+org\uv\tpcs_practica03\Venta.class
+org\uv\tpcs_practica03\IDAOGeneral.class
+org\uv\tpcs_practica03\GUICliente$1.class
 org\uv\tpcs_practica03\Producto.class
+org\uv\tpcs_practica03\DAOProducto.class
 org\uv\tpcs_practica03\HibernateUtil.class
