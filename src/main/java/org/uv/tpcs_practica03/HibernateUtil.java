@@ -1,5 +1,7 @@
 package org.uv.tpcs_practica03;
 import java.util.Properties;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -46,4 +48,10 @@ public class HibernateUtil {
         return sessionFactory;
     }
     
+    public static Session getSession() throws HibernateException{
+        if(sessionFactory==null){
+            getSessionFactory();
+        }
+        return sessionFactory.openSession();
+    }
 }
