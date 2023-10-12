@@ -1,0 +1,6 @@
+org\uv\tpcs_practica03\Cliente.class
+org\uv\tpcs_practica03\Venta.class
+org\uv\tpcs_practica03\TPCS_Practica03.class
+org\uv\tpcs_practica03\Det_Venta.class
+org\uv\tpcs_practica03\Producto.class
+org\uv\tpcs_practica03\HibernateUtil.class
