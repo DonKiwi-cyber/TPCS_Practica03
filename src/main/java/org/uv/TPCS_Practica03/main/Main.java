@@ -13,31 +13,39 @@ import org.uv.TPCS_Practica03.hibernate.HibernateUtil;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         
+        //Declaración de hibernate
         SessionFactory sessionFac= HibernateUtil.getSessionFactory();
+        
+        //Cliente N1
         Cliente cli=new Cliente();
-        cli.setNombre("Natalia LM");
-        cli.setRfc("LOMN030602ZYX");
+        cli.setNombre("Ian");
+        cli.setRfc("ROPI021021");
         cli.setId(Long.MIN_VALUE);
         
-        cli.setNombre("Ayrton BW");
-        cli.setRfc("BOWA010505XYZ");
+        //Cliente N2
+        cli.setNombre("Emmanuel");
+        cli.setRfc("GOMA021023");
         cli.setId(Long.MIN_VALUE);
         
+        //Producto 
         Producto prod = new Producto();
         prod.setId(Long.MIN_VALUE);
-        prod.setDescripcion("DelawerPunch");
-        prod.setPrecio(20);
-        prod.setExistencia(50);
-        prod.setCosto(25);
+        prod.setDescripcion("Dr. Pepper");
+        prod.setPrecio(23);
+        prod.setExistencia(100);
+        prod.setCosto(20);
         
+        //Conexión a Postgres
         Session session=sessionFac.openSession();
         Transaction t = session.beginTransaction();
-        session.save(cli);
-        session.save(prod);
         
+        //Guardado de datos
+        session.save(cli);
+        session.save(prod);      
         t.commit();
+        
+        //Cierre de la conexión
         session.close();
     }
 }
