@@ -1,11 +1,10 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-/* @author miran */
 @Entity (name="det_venta")
 public class Det_Venta {
 

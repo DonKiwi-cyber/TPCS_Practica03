@@ -1,15 +1,17 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.dao;
 
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.uv.TPCS_Practica03.domain.Cliente;
+import org.uv.TPCS_Practica03.hibernate.HibernateUtil;
 
 /* @author miran */
 
 public class DAOCliente implements IDAOGeneral<Cliente, Long>{
 
     @Override
-    public Cliente create(Cliente t) {
+    public Cliente crear(Cliente t) {
         
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
@@ -20,7 +22,7 @@ public class DAOCliente implements IDAOGeneral<Cliente, Long>{
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean eliminar(Long id) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         boolean pase=false;
@@ -35,7 +37,7 @@ public class DAOCliente implements IDAOGeneral<Cliente, Long>{
     }
 
     @Override
-    public Cliente update(Cliente t, Long id) {
+    public Cliente actualizar(Cliente t, Long id) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         Cliente cliente=session.get(Cliente.class, id);
@@ -48,7 +50,7 @@ public class DAOCliente implements IDAOGeneral<Cliente, Long>{
     }
 
     @Override
-    public List<Cliente> findAll() {
+    public List<Cliente> buscar() {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         List<Cliente> clientes=session.createQuery("From Cliente e order by e.clienteId").list();
@@ -58,7 +60,7 @@ public class DAOCliente implements IDAOGeneral<Cliente, Long>{
     }
 
     @Override
-    public Cliente findByID(Long id) {
+    public Cliente buscarUno(Long id) {
         Session session=HibernateUtil.getSession();
         Cliente cliente=session.get(Cliente.class, id);
         session.close();

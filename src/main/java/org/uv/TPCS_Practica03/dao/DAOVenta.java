@@ -1,15 +1,19 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.dao;
 
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.uv.TPCS_Practica03.domain.Det_Venta;
+import org.uv.TPCS_Practica03.domain.Producto;
+import org.uv.TPCS_Practica03.domain.Venta;
+import org.uv.TPCS_Practica03.hibernate.HibernateUtil;
 
 /* @author miran */
 
 public class DAOVenta implements IDAOGeneral<Venta, Long>{
 
     @Override
-    public Venta create(Venta t) {
+    public Venta crear(Venta t) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         session.save(t);
@@ -28,7 +32,7 @@ public class DAOVenta implements IDAOGeneral<Venta, Long>{
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean eliminar(Long id) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         Venta venta=session.get(Venta.class, id);
@@ -43,7 +47,7 @@ public class DAOVenta implements IDAOGeneral<Venta, Long>{
     }
 
     @Override
-    public Venta update(Venta t, Long id) {
+    public Venta actualizar(Venta t, Long id) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         Venta venta=session.get(Venta.class, id);
@@ -59,7 +63,7 @@ public class DAOVenta implements IDAOGeneral<Venta, Long>{
     }
 
     @Override
-    public List<Venta> findAll() {
+    public List<Venta> buscar() {
         Session session=HibernateUtil.getSession();
         List<Venta> ventas=session.createQuery("From Venta e order by e.ventaId").list();
         session.close();
@@ -67,7 +71,7 @@ public class DAOVenta implements IDAOGeneral<Venta, Long>{
     }
 
     @Override
-    public Venta findByID(Long id) {
+    public Venta buscarUno(Long id) {
         Session session=HibernateUtil.getSession();
         Venta venta=session.get(Venta.class, id);
         session.close();

@@ -1,11 +1,16 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.main;
+
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.uv.TPCS_Practica03.domain.Cliente;
+import org.uv.TPCS_Practica03.domain.Producto;
+import org.uv.TPCS_Practica03.hibernate.HibernateUtil;
 
 /* @author miran */
 
-public class TPCS_Practica03 {
+public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

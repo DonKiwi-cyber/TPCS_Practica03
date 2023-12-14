@@ -1,4 +1,4 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.hibernate;
 import java.util.Properties;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -7,6 +7,10 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import org.uv.TPCS_Practica03.domain.Cliente;
+import org.uv.TPCS_Practica03.domain.Det_Venta;
+import org.uv.TPCS_Practica03.domain.Producto;
+import org.uv.TPCS_Practica03.domain.Venta;
 
 /* @author miran */
 
@@ -18,6 +22,7 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
             Properties settings = new Properties();
             
+            //DB de ejemplo
             settings.put(Environment.DRIVER, "org.postgresql.Driver");
             settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/ventas");
             settings.put(Environment.USER, "postgres");
@@ -28,16 +33,10 @@ public class HibernateUtil {
             settings.put(Environment.HBM2DDL_AUTO,"create-drop");
             configuration.setProperties(settings);
             
-            //agrega pojo cliente como entity
-            configuration.addAnnotatedClass(Cliente.class);
-            
-            //agrega pojo venta como entity
-            configuration.addAnnotatedClass(Venta.class);
-            
-            //agrega pojo DetVenta como entity
+            //Declaración de entidades
+            configuration.addAnnotatedClass(Cliente.class);            
+            configuration.addAnnotatedClass(Venta.class);           
             configuration.addAnnotatedClass(Det_Venta.class);
-            
-            //agrega pojo Producto como entity
             configuration.addAnnotatedClass(Producto.class);
             
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -48,6 +47,7 @@ public class HibernateUtil {
         return sessionFactory;
     }
     
+    //Inicio de conexión
     public static Session getSession() throws HibernateException{
         if(sessionFactory==null){
             getSessionFactory();

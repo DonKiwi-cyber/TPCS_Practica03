@@ -1,4 +1,4 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.domain;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/*@author miran */
 
 @Entity (name="cliente")
 
@@ -21,9 +20,6 @@ public class Cliente {
     
     @Column
     private String rfc;
-    
-//    @OneToMany(mappedBy = "cliente")
-//    private List<Venta> venta;
 
     public Long getId() {
         return id;
@@ -48,15 +44,5 @@ public class Cliente {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
-
-//    public List<Venta> getVenta() {
-//        return venta;
-//    }
-//
-//    public void setVenta(List<Venta> venta) {
-//        this.venta = venta;
-//    }
-    
-    
     
 }

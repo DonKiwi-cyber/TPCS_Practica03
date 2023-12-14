@@ -2,11 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.dao;
 
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.uv.TPCS_Practica03.domain.Producto;
+import org.uv.TPCS_Practica03.hibernate.HibernateUtil;
 
 /**
  *
@@ -15,7 +17,7 @@ import org.hibernate.Transaction;
 public class DAOProducto implements IDAOGeneral<Producto, Long>{
 
     @Override
-    public Producto create(Producto t) {
+    public Producto crear(Producto t) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         
@@ -28,7 +30,7 @@ public class DAOProducto implements IDAOGeneral<Producto, Long>{
     }
 
     @Override
-    public boolean delete(Long id) {
+    public boolean eliminar(Long id) {
         boolean pase=false;
         Session session=HibernateUtil.getSession();
         Transaction t=session.beginTransaction();
@@ -45,7 +47,7 @@ public class DAOProducto implements IDAOGeneral<Producto, Long>{
     }
 
     @Override
-    public Producto update(Producto t, Long id) {
+    public Producto actualizar(Producto t, Long id) {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         
@@ -60,7 +62,7 @@ public class DAOProducto implements IDAOGeneral<Producto, Long>{
     }
 
     @Override
-    public List<Producto> findAll() {
+    public List<Producto> buscar() {
         Session session=HibernateUtil.getSession();
         Transaction transaction=session.beginTransaction();
         
@@ -73,7 +75,7 @@ public class DAOProducto implements IDAOGeneral<Producto, Long>{
     }
 
     @Override
-    public Producto findByID(Long id) {
+    public Producto buscarUno(Long id) {
         Session session=HibernateUtil.getSession();
         Producto p=session.get(Producto.class, id);
         session.close();

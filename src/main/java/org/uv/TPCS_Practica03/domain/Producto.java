@@ -1,4 +1,4 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.domain;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-/* @author miran*/
 
 @Entity (name="producto")
 public class Producto {

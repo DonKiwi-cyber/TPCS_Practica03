@@ -1,4 +1,4 @@
-package org.uv.tpcs_practica03;
+package org.uv.TPCS_Practica03.domain;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-/* @author miran */
+
 @Entity (name="venta")
 public class Venta {
     @Id
